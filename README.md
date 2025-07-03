@@ -6,7 +6,7 @@ Crimson Pathfinder 3D is an interactive web application that visualizes maze gen
 ## 🛠️ Features
   * **Procedural Maze Generation**: Generates unique mazes using a recursive backtracking algorithm.
   * **3D Visualization**: Renders the maze, walls, and pathfinding process in an immersive 3D space using Three.js.
-  * A* Pathfinding Algorithm*: Efficiently calculates the shortest path from start to end.
+  * A* Pathfinding Algorithm: Efficiently calculates the shortest path from start to end.
   * **Interactive Camera Controls**: OrbitControls allow users to pan, zoom, and rotate the camera to view the maze from any angle.
   * **Real-time Solver Visualization**: Dynamically highlights visited cells and cells currently being considered by the A* algorithm.
   * **Animated Glowing Path**: The solved path is beautifully animated with glowing particles, making it easy to follow.
