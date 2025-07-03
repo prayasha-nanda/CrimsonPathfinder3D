@@ -13,9 +13,7 @@ Crimson Pathfinder 3D is an interactive web application that visualizes maze gen
   * **Mini-Map**: A 2D mini-map provides an overhead view of the maze and the solver's progress.
 
 ## 🍮 Star Wars Easter Eggs
-Features a simplified X-wing at the start, a Death Star at the end, and a randomly placed Grogu (Baby Yoda) who can intercept the path.
-Responsive Design: Adapts to various screen sizes for optimal viewing on desktop and mobile devices.
-Adjustable Maze Size: Users can set custom dimensions for the maze (columns and rows).
+Features a simplified X-wing at the start, a Death Star at the end, and a randomly placed Grogu (Baby Yoda) who can intercept the path. Adapts to various screen sizes for optimal viewing on desktop and mobile devices. Users can set custom dimensions for the maze (columns and rows).
 
 ## 🪙 Mascot: Astaroth, the Maze Warden
 
