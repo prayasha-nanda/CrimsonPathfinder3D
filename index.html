@@ -528,7 +528,6 @@
             startNode = grid[0][0];
             endNode = grid[cols - 1][rows - 1];
 
-            // --- Star Wars Easter Egg: Create 3D markers for Start and End ---
             // X-Wing (Start Node Marker)
             const xWingGroup = new THREE.Group();
             const wingMaterial = new THREE.MeshLambertMaterial({ color: 0x00FF00, emissive: 0x005500 }); // Green glow
@@ -805,29 +804,24 @@
                         const node1 = path[segmentIndex];
                         const node2 = path[segmentIndex + 1];
 
-                        // Interpolate position between node1 and node2
                         positions[i * 3 + 0] = node1.x * CELL_SIZE + CELL_SIZE / 2 + mazeOffsetX + (node2.x - node1.x) * CELL_SIZE * segmentProgress;
-                        positions[i * 3 + 1] = WALL_HEIGHT / 2 + WALL_THICKNESS; // Keep particles slightly above floor
+                        positions[i * 3 + 1] = WALL_HEIGHT / 2 + WALL_THICKNESS;
                         positions[i * 3 + 2] = node1.y * CELL_SIZE + CELL_SIZE / 2 + mazeOffsetY + (node2.y - node1.y) * CELL_SIZE * segmentProgress;
 
-                        // Fade in/out based on segment progress (for a trailing effect)
-                        // Make particles more visible for a longer duration
-                        const fadeThreshold = 0.2; // Increased fade threshold for longer visibility
+                        const fadeThreshold = 0.2;
                         if (segmentProgress < fadeThreshold) {
-                            alphas[i] = segmentProgress / fadeThreshold; // Fade in
+                            alphas[i] = segmentProgress / fadeThreshold;
                         } else if (segmentProgress > (1 - fadeThreshold)) {
-                            alphas[i] = (1 - segmentProgress) / fadeThreshold; // Fade out
+                            alphas[i] = (1 - segmentProgress) / fadeThreshold;
                         } else {
-                            alphas[i] = 1.0; // Fully opaque in middle
+                            alphas[i] = 1.0;
                         }
                     } else {
-                        // If particle is on the last segment or beyond (shouldn't happen with reset)
-                        // Just place it at the end node and fade out
                         const lastNode = path[pathLength - 1];
                         positions[i * 3 + 0] = lastNode.x * CELL_SIZE + CELL_SIZE / 2 + mazeOffsetX;
                         positions[i * 3 + 1] = WALL_HEIGHT / 2 + WALL_THICKNESS;
                         positions[i * 3 + 2] = lastNode.y * CELL_SIZE + CELL_SIZE / 2 + mazeOffsetY;
-                        alphas[i] = 0; // Make it invisible if it's at the very end
+                        alphas[i] = 0;
                     }
                 }
 
@@ -838,22 +832,20 @@
             renderer.render(scene, camera);
         }
 
-        // --- Maze Generation Functions ---
-
         // Recursive Backtracking algorithm for maze generation
         function generateMaze3D() {
             statusMessage.textContent = "Generating maze...";
             generateBtn.disabled = true;
             solveBtn.disabled = true;
             stopBtn.disabled = true;
-            zoomInBtn.disabled = true; // Disable zoom during generation
-            zoomOutBtn.disabled = true; // Disable zoom during generation
+            zoomInBtn.disabled = true;
+            zoomOutBtn.disabled = true;
 
 
-            setupMaze3D(); // Initialize grid and Three.js scene
+            setupMaze3D();
 
             let stack = [];
-            let current = grid[0][0]; // Start from top-left cell
+            let current = grid[0][0];
             current.visited = true;
             stack.push(current);
 
@@ -864,26 +856,24 @@
 
                     if (next) {
                         next.visited = true;
-                        removeWalls(current, next); // This now removes 3D walls
+                        removeWalls(current, next);
                         stack.push(next);
                     } else {
-                        stack.pop(); // Backtrack
+                        stack.pop();
                     }
                 } else {
                     clearInterval(generationLoop);
                     statusMessage.textContent = "Maze generated!";
                     generateBtn.disabled = false;
                     solveBtn.disabled = false;
-                    zoomInBtn.disabled = false; // Enable zoom after generation
-                    zoomOutBtn.disabled = false; // Enable zoom after generation
-                    drawMiniMapWalls(); // Ensure mini-map walls are drawn
-                    updateMiniMapSolverViz(); // Update mini-map with start/end
+                    zoomInBtn.disabled = false;
+                    zoomOutBtn.disabled = false;
+                    drawMiniMapWalls();
+                    updateMiniMapSolverViz();
                 }
-            }, 5); // Adjust speed of generation
+            }, 5);
         }
-
-        // --- Pathfinding Functions (A* Search) ---
-
+        
         // Heuristic function (Manhattan distance)
         function heuristic(a, b) {
             return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
@@ -897,16 +887,14 @@
                     grid[i][j].h = 0;
                     grid[i][j].f = Infinity;
                     grid[i][j].parent = undefined;
-                    // Reset floor material to default
                     grid[i][j].setFloorMaterial(floorMaterial);
                 }
             }
         }
 
-        // A* search algorithm step-by-step
+        // A* search algorithm
         function solveMazeStep() {
             if (openSet.length > 0) {
-                // Find the node with the lowest f-cost in openSet
                 let lowestFIndex = 0;
                 for (let i = 0; i < openSet.length; i++) {
                     if (openSet[i].f < openSet[lowestFIndex].f) {
@@ -919,8 +907,7 @@
                 }
 
                 let current = openSet[lowestFIndex];
-
-                // If we reached the end node, reconstruct the path and stop
+                
                 if (current === endNode) {
                     clearInterval(solverInterval);
                     solving = false;
@@ -933,40 +920,37 @@
                         temp = temp.parent;
                     }
                     fullPath.push(startNode);
-                    fullPath.reverse(); // Path from start to end
-
-                    // Check for Grogu interception
+                    fullPath.reverse();
+                    
                     let interceptedByGrogu = false;
                     if (groguCell) {
                         const groguIndex = fullPath.findIndex(cell => cell.x === groguCell.x && cell.y === groguCell.y);
                         if (groguIndex !== -1) {
-                            path = fullPath.slice(0, groguIndex + 1); // Shorten path to Grogu's cell
+                            path = fullPath.slice(0, groguIndex + 1);
                             interceptedByGrogu = true;
                         }
                     }
 
                     if (!interceptedByGrogu) {
-                        path = fullPath; // Use full path if no interception
-                        statusMessage.textContent = "Path found! May the Force be with you."; // Star Wars Easter Egg
+                        path = fullPath;
+                        statusMessage.textContent = "Path found! May the Force be with you.";
                     } else {
-                        statusMessage.textContent = "Path intercepted by Grogu! The way, he has found."; // Star Wars Easter Egg
+                        statusMessage.textContent = "Path intercepted by Grogu! The way, he has found.";
                     }
 
                     generateBtn.disabled = false;
                     solveBtn.disabled = false;
                     stopBtn.disabled = true;
-                    zoomInBtn.disabled = false; // Enable zoom after solving
-                    zoomOutBtn.disabled = false; // Enable zoom after solving
-                    drawPath3D(); // Draw final path (now particle system)
-                    updateMiniMapSolverViz(); // Update mini-map with final path
+                    zoomInBtn.disabled = false;
+                    zoomOutBtn.disabled = false;
+                    drawPath3D();
+                    updateMiniMapSolverViz();
                     return;
                 }
 
-                // Move current node from openSet to closedSet
                 openSet.splice(lowestFIndex, 1);
                 closedSet.push(current);
 
-                // Explore neighbors
                 let neighbors = current.getValidNeighbors();
                 for (let i = 0; i < neighbors.length; i++) {
                     let neighbor = neighbors[i];
@@ -976,10 +960,8 @@
                         continue;
                     }
 
-                    // Calculate tentative g-cost
-                    let tempG = current.g + 1; // Cost to move to neighbor is 1
-
-                    // If neighbor is not in openSet or new path to neighbor is better
+                    let tempG = current.g + 1;
+                    
                     if (!openSet.includes(neighbor) || tempG < neighbor.g) {
                         neighbor.g = tempG;
                         neighbor.h = heuristic(neighbor, endNode);
@@ -992,48 +974,37 @@
                     }
                 }
             } else {
-                // No path found
                 clearInterval(solverInterval);
                 solving = false;
-                statusMessage.textContent = "No path found! The Force is not strong with this one."; // Star Wars Easter Egg
+                statusMessage.textContent = "No path found! The Force is not strong with this one.";
                 generateBtn.disabled = false;
                 solveBtn.disabled = false;
                 stopBtn.disabled = true;
-                zoomInBtn.disabled = false; // Enable zoom after solving
-                zoomOutBtn.disabled = false; // Enable zoom after solving
+                zoomInBtn.disabled = false;
+                zoomOutBtn.disabled = false;
             }
 
-            // Update visualization in 3D
             drawVisualization3D();
-            updateMiniMapSolverViz(); // Update mini-map with solver progress
+            updateMiniMapSolverViz();
         }
 
-        // Update 3D visualization of pathfinding process
         function drawVisualization3D() {
-            // Reset all cells to default floor material first
             for (let i = 0; i < cols; i++) {
                 for (let j = 0; j < rows; j++) {
                     grid[i][j].setFloorMaterial(floorMaterial);
                 }
             }
 
-            // Highlight closedSet nodes
             for (let i = 0; i < closedSet.length; i++) {
                 closedSet[i].setFloorMaterial(visitedMaterial);
             }
 
-            // Highlight openSet nodes
             for (let i = 0; i < openSet.length; i++) {
                 openSet[i].setFloorMaterial(openSetMaterial);
             }
-
-            // IMPORTANT: Do NOT remove particleSystem here. It should persist after solve.
-            // It will be removed at the start of new generation or solve.
         }
 
-        // Draw the final path as a glittering fairy trail
         function drawPath3D() {
-            // Remove previous particle system if any
             if (particleSystem) {
                 scene.remove(particleSystem);
                 particleSystem.geometry.dispose();
@@ -1046,22 +1017,18 @@
             const geometry = new THREE.BufferGeometry();
             geometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
             geometry.setAttribute('alpha', new THREE.BufferAttribute(particleAlphas, 1));
-            geometry.setAttribute('pOffset', new THREE.BufferAttribute(particleOffsets, 1)); // Store particle's offset along path
-
-            // Initialize particle offsets and alphas
+            geometry.setAttribute('pOffset', new THREE.BufferAttribute(particleOffsets, 1));
+            
             for (let i = 0; i < PARTICLE_COUNT; i++) {
-                particleOffsets[i] = Math.random() * (path.length - 1); // Random start position along the path
-                particleAlphas[i] = 0; // Start invisible
+                particleOffsets[i] = Math.random() * (path.length - 1);
+                particleAlphas[i] = 0;
             }
 
             particleSystem = new THREE.Points(geometry, particleMaterial);
             particleSystem.name = 'fairyTrail';
             scene.add(particleSystem);
         }
-
-
-        // --- Event Listeners ---
-
+        
         generateBtn.addEventListener('click', generateMaze3D);
 
         solveBtn.addEventListener('click', () => {
@@ -1071,10 +1038,9 @@
             generateBtn.disabled = true;
             solveBtn.disabled = true;
             stopBtn.disabled = false;
-            zoomInBtn.disabled = true; // Disable zoom during solving
-            zoomOutBtn.disabled = true; // Disable zoom during solving
-
-            // Reset pathfinding state and visualization
+            zoomInBtn.disabled = true;
+            zoomOutBtn.disabled = true;
+            
             resetPathfindingProperties();
             openSet = [];
             closedSet = [];
@@ -1085,7 +1051,6 @@
             startNode.f = startNode.g + startNode.h;
             openSet.push(startNode);
 
-            // Remove any old particle system before solving starts
             if (particleSystem) {
                 scene.remove(particleSystem);
                 particleSystem.geometry.dispose();
@@ -1094,7 +1059,7 @@
             }
 
             solving = true;
-            solverInterval = setInterval(solveMazeStep, 10); // Adjust solving speed
+            solverInterval = setInterval(solveMazeStep, 10);
         });
 
         stopBtn.addEventListener('click', () => {
@@ -1104,25 +1069,22 @@
             generateBtn.disabled = false;
             solveBtn.disabled = false;
             stopBtn.disabled = true;
-            zoomInBtn.disabled = false; // Enable zoom after stopping
-            zoomOutBtn.disabled = false; // Enable zoom after stopping
-            drawVisualization3D(); // Redraw to show current state without further solving
-            updateMiniMapSolverViz(); // Update mini-map after stopping
+            zoomInBtn.disabled = false;
+            zoomOutBtn.disabled = false;
+            drawVisualization3D();
+            updateMiniMapSolverViz();
         });
 
-        // Get references to new zoom buttons
         const zoomInBtn = document.getElementById('zoomInBtn');
         const zoomOutBtn = document.getElementById('zoomOutBtn');
 
-        // Add event listeners for zoom buttons
-        const ZOOM_STEP_FACTOR = 0.1; // Adjust this for faster/slower zoom
+        const ZOOM_STEP_FACTOR = 0.1;
         zoomInBtn.addEventListener('click', () => {
             if (controls && camera) {
                 const target = controls.target;
                 const currentPosition = camera.position;
                 const direction = new THREE.Vector3().subVectors(currentPosition, target).normalize();
-                
-                // Calculate new distance, ensuring it doesn't go below minDistance
+
                 const newDistance = Math.max(controls.minDistance, currentPosition.distanceTo(target) - currentPosition.distanceTo(target) * ZOOM_STEP_FACTOR);
                 
                 camera.position.copy(target).add(direction.multiplyScalar(newDistance));
@@ -1137,7 +1099,6 @@
                 const direction = new THREE.Vector3().subVectors(currentPosition, target).normalize();
                 const currentDistance = currentPosition.distanceTo(target);
 
-                // Calculate new distance, ensuring it doesn't exceed maxDistance
                 const newDistance = Math.min(controls.maxDistance, currentDistance + currentDistance * ZOOM_STEP_FACTOR);
                 
                 camera.position.copy(target).add(direction.multiplyScalar(newDistance));
@@ -1145,23 +1106,18 @@
             }
         });
 
-
-        // Initial setup on window load
         window.onload = () => {
-            generateMaze3D(); // Generate a maze when the page loads
-            animate(); // Start the Three.js animation loop
+            generateMaze3D();
+            animate();
         };
 
-        // Adjust canvas size on window resize
         window.addEventListener('resize', () => {
-            // Update renderer and camera aspect ratio
             const width = threejsContainer.clientWidth;
             const height = threejsContainer.clientHeight;
             renderer.setSize(width, height);
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
 
-            // Recalculate mini-map size and redraw
             setupMiniMap();
             drawMiniMapWalls();
             updateMiniMapSolverViz();
