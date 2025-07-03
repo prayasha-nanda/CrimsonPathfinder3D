@@ -1,23 +1,23 @@
 # Crimson Pathfinder 3D: AI Maze Solver
 ---
 ## 🌠 Description
-Crimson Pathfinder 3D is an interactive web application that visualizes maze generation and AI pathfinding in a dynamic 3D environment. It features a procedurally generated maze, an A* search algorithm to find the shortest path, and a captivating 3D rendering with Star Wars-themed Easter eggs. Watch as the AI explores the maze, highlights its progress, and reveals the optimal path marked by a shimmering "fairy trail." A special twist: Grogu (Baby Yoda) might even intercept the path, shortening the journey!
+Crimson Pathfinder 3D is an interactive web application that visualizes maze generation and AI pathfinding in a dynamic 3D environment. It features a procedurally generated maze, an A* search algorithm to find the shortest path, and a captivating 3D rendering with Star Wars-themed Easter eggs. Watch as the AI explores the maze, highlights its progress, and reveals the optimal path marked by a shimmering trail. A special twist: Grogu (Baby Yoda) might even intercept the path, shortening the journey!
 
 ## Features
   * **Procedural Maze Generation**: Generates unique mazes using a recursive backtracking algorithm.
   * **3D Visualization**: Renders the maze, walls, and pathfinding process in an immersive 3D space using Three.js.
-  * **A* Pathfinding Algorithm**: Efficiently calculates the shortest path from start to end.
+  * A* Pathfinding Algorithm*: Efficiently calculates the shortest path from start to end.
   * **Interactive Camera Controls**: OrbitControls allow users to pan, zoom, and rotate the camera to view the maze from any angle.
-  * Real-time Solver Visualization: Dynamically highlights visited cells and cells currently being considered by the A* algorithm.
-  * Animated "Fairy Trail" Path: The solved path is beautifully animated with glowing particles, making it easy to follow.
-  * Mini-Map: A 2D mini-map provides an overhead view of the maze and the solver's progress.
+  * **Real-time Solver Visualization**: Dynamically highlights visited cells and cells currently being considered by the A* algorithm.
+  * **Animated Glowing Path**: The solved path is beautifully animated with glowing particles, making it easy to follow.
+  * **Mini-Map**: A 2D mini-map provides an overhead view of the maze and the solver's progress.
 
 ## 🍮 Star Wars Easter Eggs
 Features a simplified X-wing at the start, a Death Star at the end, and a randomly placed Grogu (Baby Yoda) who can intercept the path.
 Responsive Design: Adapts to various screen sizes for optimal viewing on desktop and mobile devices.
 Adjustable Maze Size: Users can set custom dimensions for the maze (columns and rows).
 
-## Mascot: Astaroth, the Maze Warden
+## 🪙 Mascot: Astaroth, the Maze Warden
 
 <img src="TeamGoldenRatio_Astaroth.png" alt="Astaroth, the Maze Warden" width="400"/>
 
@@ -36,3 +36,6 @@ Adjustable Maze Size: Users can set custom dimensions for the maze (columns and 
 * JavaScript: Core logic for maze generation, A* algorithm, and Three.js integration.
 * Three.js: 3D rendering library.
 * OrbitControls.js: Three.js extension for interactive camera controls.
+---
+## Contact
+Developed by Prayasha Nanda. Feel free to reach out!
