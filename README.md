@@ -22,6 +22,14 @@ Joined the VC and intereacted with fellow Siths! The Jedis faced a terrible defe
 ### Challenge 4: Bring Your World into 3D
 Our pride lies in the 3D rendering of the procedurally generated maze!
 
+## Tech Stack
+* HTML5: Structure of the web page.
+* Tailwind CSS: Styling and responsive layout.
+* JavaScript: Core logic for maze generation, A* algorithm, and Three.js integration.
+* Three.js: 3D rendering library.
+* OrbitControls.js: Three.js extension for interactive camera controls.
+* Vercel: Deployment platform.
+
 ## 🛠️ Features
   * **Procedural Maze Generation**: Generates unique mazes using a recursive backtracking algorithm.
   * **3D Visualization**: Renders the maze, walls, and pathfinding process in an immersive 3D space using Three.js.
@@ -47,12 +55,6 @@ Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrup
 4. Click "Solve Maze" to see the A* algorithm in action and reveal the path.
 5. Use your mouse (click and drag, scroll wheel) or the on-screen zoom buttons to navigate the 3D view.
 
-## Technologies Used
-* HTML5: Structure of the web page.
-* Tailwind CSS: Styling and responsive layout.
-* JavaScript: Core logic for maze generation, A* algorithm, and Three.js integration.
-* Three.js: 3D rendering library.
-* OrbitControls.js: Three.js extension for interactive camera controls.
 ---
 ## Contact
 Developed by Prayasha Nanda and Janavee V, team Golden Ratio. Feel free to reach out!
