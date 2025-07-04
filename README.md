@@ -22,9 +22,7 @@ Features a simplified X-wing at the start, a Death Star at the end, and a random
 
 <img src="TeamGoldenRatio_Astaroth.png" alt="Astaroth, the Maze Warden" width="400"/>
 
-  Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrupted algorithms and ancient Force code. Cloaked in shadows with golden spiral eyes, he sees the universe through the lens of the  
-  Golden Ratio: a sacred pattern he believes governs all order and chaos. Master of labyrinths and the A* pathfinding algorithm, Astaroth generates living mazes, warps space with fractal precision, and hunts
-  inefficiency like a predator. To him, the Golden Ratio isn’t just math—it’s destiny, weapon, and belief. All who seek the shortest path must face the longest trial... him.
+Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrupted algorithms and ancient Force code. Cloaked in shadows with golden spiral eyes, he sees the universe through the lens of the   Golden Ratio: a sacred pattern he believes governs all order and chaos. Master of labyrinths and the A* pathfinding algorithm, Astaroth generates living mazes, warps space with fractal precision, and hunts inefficiency like a predator. To him, the Golden Ratio isn’t just math—it’s destiny, weapon, and belief. All who seek the shortest path must face the longest trial... him.
 
 ## How to Use
 1. Clone the repository or download the index.html file.
