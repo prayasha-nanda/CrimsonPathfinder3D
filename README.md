@@ -3,7 +3,7 @@
 ## 🌠 Description
 Crimson Pathfinder 3D is an interactive web application that visualizes maze generation and AI pathfinding in a dynamic 3D environment. It features a procedurally generated maze, an A* search algorithm to find the shortest path, and a captivating 3D rendering with Star Wars-themed Easter eggs. Watch as the AI explores the maze, highlights its progress, and reveals the optimal path marked by a shimmering trail. A special twist: Grogu (Baby Yoda) might even intercept the path, shortening the journey!
 
-## Live Demo
+## ⭐ Live Demo
 Experience Astaroth's maze-solving [live](https://crimson-pathfinder.vercel.app/)!
 
 ## 🛠️ Features
