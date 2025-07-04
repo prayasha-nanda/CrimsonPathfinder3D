@@ -22,7 +22,7 @@ Joined the VC and intereacted with fellow Siths! The Jedis faced a terrible defe
 ### Challenge 4: Bring Your World into 3D
 Our pride lies in the 3D rendering of the procedurally generated maze!
 
-## Tech Stack
+## ☰ Tech Stack
 * HTML5: Structure of the web page.
 * Tailwind CSS: Styling and responsive layout.
 * JavaScript: Core logic for maze generation, A* algorithm, and Three.js integration.
