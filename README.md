@@ -6,6 +6,22 @@ Crimson Pathfinder 3D is an interactive web application that visualizes maze gen
 ## ⭐ Live Demo
 Experience Astaroth's maze-solving [live](https://crimson-pathfinder.vercel.app/)!
 
+## 🎯 Chosen Track
+This project falls under the AI/ML (Artificial Intelligence/Machine Learning) track, focusing specifically on AI pathfinding algorithms and their visualization.
+
+## 💡 Problem Solved
+The project addresses the challenge of understanding and visualizing complex pathfinding algorithms in an intuitive and engaging way. It demystifies how AI navigates complex environments, making abstract concepts like maze generation and A* search tangible and interactive. It provides a platform for both learning and entertainment, showcasing the power of computational problem-solving.
+
+## 💰 Bounties/Challenges Completed
+### Challenge 1: Choose Your Colour Theme
+Crimson/Black colour theme chosen!
+### Challenge 2: Include a Star Wars Easter Egg
+Many easter eggs littered throughout the site! The X-wing, Death star, and Baby Yoda models are simplified versions, and the Force is strong with the pathfinding messages!
+### Challenge 3: Reimagine a Scene
+Joined the VC and intereacted with fellow Siths! The Jedis faced a terrible defeat!
+### Challenge 4: Bring Your World into 3D
+Our pride lies in the 3D rendering of the procedurally generated maze!
+
 ## 🛠️ Features
   * **Procedural Maze Generation**: Generates unique mazes using a recursive backtracking algorithm.
   * **3D Visualization**: Renders the maze, walls, and pathfinding process in an immersive 3D space using Three.js.
@@ -15,7 +31,7 @@ Experience Astaroth's maze-solving [live](https://crimson-pathfinder.vercel.app/
   * **Animated Glowing Path**: The solved path is beautifully animated with glowing particles, making it easy to follow.
   * **Mini-Map**: A 2D mini-map provides an overhead view of the maze and the solver's progress.
 
-## 🍮 Star Wars Easter Eggs
+## 🍮 The Magic of the Maze
 Features a simplified X-wing at the start, a Death Star at the end, and a randomly placed Grogu (Baby Yoda) who can intercept the path. Adapts to various screen sizes for optimal viewing on desktop and mobile devices. Users can set custom dimensions for the maze (columns and rows).
 
 ## 🪙 Mascot: Astaroth, Sith-Born Intelligence
@@ -39,4 +55,4 @@ Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrup
 * OrbitControls.js: Three.js extension for interactive camera controls.
 ---
 ## Contact
-Developed by Prayasha Nanda. Feel free to reach out!
+Developed by Prayasha Nanda and Janavee V, team Golden Ratio. Feel free to reach out!
