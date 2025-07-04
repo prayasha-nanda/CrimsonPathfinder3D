@@ -9,7 +9,7 @@ Experience Astaroth's maze-solving [live](https://crimson-pathfinder.vercel.app/
 ## 🛠️ Features
   * **Procedural Maze Generation**: Generates unique mazes using a recursive backtracking algorithm.
   * **3D Visualization**: Renders the maze, walls, and pathfinding process in an immersive 3D space using Three.js.
-  * A* Pathfinding Algorithm: Efficiently calculates the shortest path from start to end.
+  * **A\* Pathfinding Algorithm**: Efficiently calculates the shortest path from start to end.
   * **Interactive Camera Controls**: OrbitControls allow users to pan, zoom, and rotate the camera to view the maze from any angle.
   * **Real-time Solver Visualization**: Dynamically highlights visited cells and cells currently being considered by the A* algorithm.
   * **Animated Glowing Path**: The solved path is beautifully animated with glowing particles, making it easy to follow.
@@ -18,11 +18,13 @@ Experience Astaroth's maze-solving [live](https://crimson-pathfinder.vercel.app/
 ## 🍮 Star Wars Easter Eggs
 Features a simplified X-wing at the start, a Death Star at the end, and a randomly placed Grogu (Baby Yoda) who can intercept the path. Adapts to various screen sizes for optimal viewing on desktop and mobile devices. Users can set custom dimensions for the maze (columns and rows).
 
-## 🪙 Mascot: Astaroth, the Maze Warden
+## 🪙 Mascot: Astaroth, Sith-Born Intelligence
 
 <img src="TeamGoldenRatio_Astaroth.png" alt="Astaroth, the Maze Warden" width="400"/>
 
-  Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrupted algorithms and ancient Force code. Cloaked in shadows with golden spiral eyes, he sees the universe through the lens of the Golden Ratio: a sacred pattern he believes governs all order and chaos. Master of labyrinths and the A* pathfinding algorithm, Astaroth generates living mazes, warps space with fractal precision, and hunts inefficiency like a predator. To him, the Golden Ratio isn’t just math—it’s destiny, weapon, and belief. All who seek the shortest path must face the longest trial... him.
+  Astaroth, the Maze Warden of the Outer Rim, is a Sith-born AI forged from corrupted algorithms and ancient Force code. Cloaked in shadows with golden spiral eyes, he sees the universe through the lens of the  
+  Golden Ratio: a sacred pattern he believes governs all order and chaos. Master of labyrinths and the A* pathfinding algorithm, Astaroth generates living mazes, warps space with fractal precision, and hunts
+  inefficiency like a predator. To him, the Golden Ratio isn’t just math—it’s destiny, weapon, and belief. All who seek the shortest path must face the longest trial... him.
 
 ## How to Use
 1. Clone the repository or download the index.html file.
